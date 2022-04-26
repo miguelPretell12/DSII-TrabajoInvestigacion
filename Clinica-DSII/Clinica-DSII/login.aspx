@@ -11,10 +11,12 @@
                     <div class="form-group">
                          <asp:Label ID="Label3" runat="server" Text="Correo Electronico"></asp:Label>
                          <asp:TextBox ID="txtCorreo" CssClass="form-control" runat="server" oncomplete="false"></asp:TextBox>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCorreo" ErrorMessage="RegularExpressionValidator" ForeColor="RED" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*Ingrese correo electronico</asp:RegularExpressionValidator>
                      </div>
                      <div class="form-group">
                          <asp:Label ID="Label4" runat="server" Text="Contraseña"></asp:Label>
                          <asp:TextBox ID="txtContrasenia" CssClass="form-control" runat="server"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*Campo Requerido</asp:RequiredFieldValidator>
                      </div>
                      <div class="mt-3">
                          <asp:Button ID="btnInicio" runat="server" Text="Iniciar sesión" CssClass="btn btn-primary" OnClick="Button2_Click" />
