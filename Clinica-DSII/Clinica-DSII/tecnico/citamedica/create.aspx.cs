@@ -20,6 +20,7 @@ namespace Clinica_DSII.tecnico.citamedica
             llenarEspecialidad();
             llenarPaciente();
             llenarHorario();
+            llenarAlerPre();
         }
 
         public void llenarEstado()
@@ -67,6 +68,12 @@ namespace Clinica_DSII.tecnico.citamedica
             ddlhorario.DataValueField = "IdH";
             ddlhorario.DataTextField = "DetalleHorario";
             ddlhorario.DataBind();
+        }
+
+        public void llenarAlerPre()
+        {
+            ddlAler.Items.Add("Si");
+            ddlAler.Items.Add("No");
         }
     }
 }

@@ -40,7 +40,7 @@
             </div>
             <div class="col-sm">
                 <asp:Label ID="Label8" runat="server" Text="¿Es alergico a los medicamentos?"></asp:Label>
-                <asp:DropDownList ID="DropDownList5" runat="server" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList ID="ddlAler" runat="server" CssClass="form-control"></asp:DropDownList>
             </div>
         </div>
 

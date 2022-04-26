@@ -150,13 +150,13 @@ namespace Clinica_DSII.tecnico.citamedica
         protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// Control DropDownList5.
+        /// Control ddlAler.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAler;
 
         /// <summary>
         /// Control btnRegistro.
