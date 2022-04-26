@@ -7,10 +7,12 @@
             <div class="col-sm">
                 <asp:Label ID="Label1" runat="server" Text="Hora Inicio"></asp:Label>
                 <asp:TextBox ID="txtHoraI" runat="server" TextMode="Time" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtHoraI" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*Campo Requerido</asp:RequiredFieldValidator>
             </div>
             <div class="col-sm">
                 <asp:Label ID="Label2" runat="server" Text="Hora Final"></asp:Label>
                 <asp:TextBox ID="txtHoraF" runat="server" TextMode="Time" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtHoraF" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*Campo Requerido</asp:RequiredFieldValidator>
             </div>
         </div>
          <asp:Label ID="lblr" runat="server" ></asp:Label>
