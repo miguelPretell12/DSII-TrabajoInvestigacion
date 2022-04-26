@@ -14,6 +14,7 @@ namespace Clinica_DSII.tecnico.citamedica
     public partial class create : System.Web.UI.Page
     {
         private SqlConnection cone = new SqlConnection("Server=LAPTOP-OB4D3M28; Database=clinicaDSII; Integrated Security=true");
+        DaoCitaMedica dao = new DaoCitaMedica();
         protected void Page_Load(object sender, EventArgs e)
         {
             llenarEstado();
@@ -30,7 +31,6 @@ namespace Clinica_DSII.tecnico.citamedica
             ddlEstado.Items.Add("No Asistio");
             ddlEstado.Items.Add("Concluido");
         }
-
         public void llenarEspecialidad() {
             DataSet ds = new DataSet();
             SqlCommand cm = new SqlCommand("select " +
@@ -69,11 +69,40 @@ namespace Clinica_DSII.tecnico.citamedica
             ddlhorario.DataTextField = "DetalleHorario";
             ddlhorario.DataBind();
         }
-
         public void llenarAlerPre()
         {
             ddlAler.Items.Add("Si");
             ddlAler.Items.Add("No");
+        }
+
+        protected void btnRegistro_Click(object sender, EventArgs e)
+        {
+
+            int idpac, idespdoc, idhorario;
+            double peso, estatura;
+            string estado, alergm;
+            DateTime fecCita;
+
+            idpac = int.Parse(ddlpaciente.Text);
+            idespdoc = int.Parse(ddlMedEsp.Text);
+            idhorario = int.Parse(ddlhorario.Text);
+
+            fecCita = DateTime.Parse(txtFecha.Text);
+
+            peso = double.Parse(txtPeso.Text);
+            estatura = double.Parse(txtEstatura.Text);
+
+            estado = ddlEstado.Text.ToLower();
+            alergm = ddlAler.Text;
+
+            CitaMedica cm = new CitaMedica(idpac, idhorario, idespdoc, fecCita, estado, peso, estatura, alergm);
+            if (dao.insertar(cm)) {
+                Response.Redirect("/tecnico/citamedica/index");
+            }else
+            {
+                Response.Redirect("/tecnico/citamedica/create");
+            }
+
         }
     }
 }

@@ -16,7 +16,7 @@
                          <asp:Label ID="Label4" runat="server" Text="Contraseña"></asp:Label>
                          <asp:TextBox ID="txtContrasenia" CssClass="form-control" runat="server"></asp:TextBox>
                      </div>
-                     <div>
+                     <div class="mt-3">
                          <asp:Button ID="btnInicio" runat="server" Text="Iniciar sesión" CssClass="btn btn-primary" OnClick="Button2_Click" />
                      </div>
                 </div>

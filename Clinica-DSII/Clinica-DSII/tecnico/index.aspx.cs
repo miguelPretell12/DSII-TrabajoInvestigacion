@@ -11,6 +11,13 @@ namespace Clinica_DSII.tecnico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string cargo = Session["sessioncargo"] as string;
+
+            if(cargo == null)
+            {
+                Response.Redirect("/login");
+            }
+
             lblScargo.Text = Session["sessioncargo"] as string;
             lblSNombre.Text = Session["sesionusuario"] as string;
         }
