@@ -2,5 +2,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-3">
         <h1>Horarios</h1>
+            
+        <div class="row">
+            <div class="col-sm">
+                <asp:Label ID="Label1" runat="server" Text="Hora Inicio"></asp:Label>
+                <asp:TextBox ID="txtHoraI" runat="server" TextMode="Time" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-sm">
+                <asp:Label ID="Label2" runat="server" Text="Hora Final"></asp:Label>
+                <asp:TextBox ID="txtHoraF" runat="server" TextMode="Time" CssClass="form-control"></asp:TextBox>
+            </div>
+        </div>
+         <asp:Label ID="lblr" runat="server" ></asp:Label>
+        <div class="mt-3">
+            <a runat="server" href="~/dashboard/admin.aspx" class="btn btn-outline-danger">Dashboard</a>
+            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click" />
+        </div>
+        <div class="table-responsive mt-3">
+            <asp:GridView ID="grdHorario" runat="server" CssClass="table table-striped table-hover"></asp:GridView>
+        </div>
     </div>
 </asp:Content>

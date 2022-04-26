@@ -7,7 +7,7 @@
             <a class="btn btn-primary d-inline" href="/tecnico/pacientes/create">Crear Pacientes</a>
         </div>
         <div class="table-responsive">
-            <asp:GridView ID="grdPaciente" runat="server" CssClass="table table-striped table-hover">
+            <asp:GridView ID="grdPaciente" runat="server" CssClass="table table-striped table-hover" OnSelectedIndexChanged="grdPaciente_SelectedIndexChanged">
             </asp:GridView>
         </div>
     </div>

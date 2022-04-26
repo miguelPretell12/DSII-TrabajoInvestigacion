@@ -19,6 +19,14 @@
         <div class="mb-3">
             <a class="btn btn-primary d-inline" href="/dashboard/usuarios/create">Crear Usuarios</a>
         </div>
+        <div class="row">
+            <div class="col-sm">
+                
+            </div>
+            <div class="col-sm">
+                
+            </div>
+        </div>
         <div class="table-responsive">
             <asp:GridView ID="grdUsuario" runat="server" CssClass="table table-striped table-hover">
             </asp:GridView>

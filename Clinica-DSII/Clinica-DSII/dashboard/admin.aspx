@@ -36,10 +36,11 @@
                       <p class="card-text">Se vera el listado de horarios de los doctores, y registro de la misma</p>
                     </div>
                     <div class="card-footer">
-                        <a class="btn btn-success" href="/dashboard/usuarios/index">Ver Horarios</a>
+                        <a class="btn btn-success" href="/dashboard/horarios/create">Ver Horarios</a>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </asp:Content>

@@ -17,6 +17,11 @@ namespace Clinica_DSII.tecnico.citamedica
         {
             if (!IsPostBack)
             {
+                string sessioncargo = Session["sessioncargo"] as string;
+                if (sessioncargo == null || sessioncargo != "tecnico")
+                {
+                    Response.Redirect("/login");
+                }
                 ds = dao.listar();
                 grdCMedica.DataSource = ds;
                 grdCMedica.DataBind();

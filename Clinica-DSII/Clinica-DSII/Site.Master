@@ -50,15 +50,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item active">
-                          <a class="nav-link" runat="server" href="~/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" runat="server" href="~/About">Features</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" runat="server" href="~/Contact">Pricing</a>
-                        </li>
+
                     </ul>
                     <div class="d-flex" style="text-transform: capitalize;">
                         <asp:LinkButton ID="lnkAuth" CssClass="text-white nav-link" runat="server" OnClick="LinkButton1_Click"></asp:LinkButton>

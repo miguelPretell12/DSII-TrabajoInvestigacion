@@ -11,6 +11,11 @@ namespace Clinica_DSII.dashboard
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string sessioncargo = Session["sessioncargo"] as string;
+            if (sessioncargo == null || sessioncargo != "administrador")
+            {
+                Response.Redirect("/login");
+            }
             lblScargo.Text = Session["sessioncargo"] as string;
             lblSNombre.Text = Session["sesionusuario"] as string;
         }

@@ -14,7 +14,14 @@ namespace Clinica_DSII.tecnico.paciente
         DaoPaciente dao = new DaoPaciente();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                string sessioncargo = Session["sessioncargo"] as string;
+                if (sessioncargo == null || sessioncargo != "tecnico")
+                {
+                    Response.Redirect("/login");
+                }
+            }
         }
 
         protected void btnRegistro_Click(object sender, EventArgs e)

@@ -17,6 +17,11 @@ namespace Clinica_DSII.tecnico.citamedica
         DaoCitaMedica dao = new DaoCitaMedica();
         protected void Page_Load(object sender, EventArgs e)
         {
+            string sessioncargo = Session["sessioncargo"] as string;
+            if (sessioncargo == null || sessioncargo != "administrador")
+            {
+                Response.Redirect("/login");
+            }
             llenarEstado();
             llenarEspecialidad();
             llenarPaciente();

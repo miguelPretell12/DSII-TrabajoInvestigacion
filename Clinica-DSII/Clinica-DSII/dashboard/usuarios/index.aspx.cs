@@ -18,6 +18,11 @@ namespace Clinica_DSII.dashboard.usuarios
         {
             if(!IsPostBack)
             {
+                string sessioncargo = Session["sessioncargo"] as string;
+                if (sessioncargo == null || sessioncargo != "administrador")
+                {
+                    Response.Redirect("/login");
+                }
                 ds = dao.listar();
                 grdUsuario.DataSource = ds;
                 grdUsuario.DataBind();

@@ -20,6 +20,11 @@ namespace Clinica_DSII.dashboard.pacientes
         {
             if(!IsPostBack)
             {
+                string sessioncargo = Session["sessioncargo"] as string;
+                if (sessioncargo == null || sessioncargo != "administrador")
+                {
+                    Response.Redirect("/login");
+                }
                 listarCargos();
             }
         }

@@ -16,12 +16,23 @@ namespace Clinica_DSII.tecnico.paciente
         DataSet ds = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
+                string sessioncargo = Session["sessioncargo"] as string;
+                if (sessioncargo == null || sessioncargo != "tecnico")
+                {
+                    Response.Redirect("/login");
+                }
                 ds = dao.listar();
                 grdPaciente.DataSource = ds;
                 grdPaciente.DataBind();
             }
+        }
+
+        protected void grdPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
