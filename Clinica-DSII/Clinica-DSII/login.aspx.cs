@@ -73,7 +73,7 @@ namespace Clinica_DSII
                     {
                         Response.Redirect("/dashboard/admin");
                     }
-                    else if (cargo == "user")
+                    else if (cargo == "tecnico")
                     {
                         Response.Redirect("/tecnico/index");
                     }

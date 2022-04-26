@@ -13,7 +13,7 @@ namespace Clinica_DSII.tecnico
         {
             string cargo = Session["sessioncargo"] as string;
 
-            if(cargo == null)
+            if(cargo == null || cargo != "tecnico")
             {
                 Response.Redirect("/login");
             }
