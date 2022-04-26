@@ -20,6 +20,7 @@
                          <asp:Button ID="btnInicio" runat="server" Text="Iniciar sesión" CssClass="btn btn-primary" OnClick="Button2_Click" />
                      </div>
                 </div>
+                <asp:Label ID="lblR" runat="server"></asp:Label>
             </div>
         </div>
 

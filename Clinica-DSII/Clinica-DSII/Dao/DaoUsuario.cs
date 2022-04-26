@@ -11,7 +11,7 @@ namespace Clinica_DSII.Dao
     public class DaoUsuario
     {
         private SqlConnection cone = new SqlConnection("Server=LAPTOP-OB4D3M28;Database=clinicaDSII;Integrated Security = true");
-
+        DataSet ds = new DataSet();
         public DataTable IniciarSesion(Usuario usu)
         {
             SqlDataAdapter da = new SqlDataAdapter("select correo, contrasenia, estado from usuarios where correo= @email and contrasenia=@cont and estado = 'A' ",cone);
@@ -50,5 +50,15 @@ namespace Clinica_DSII.Dao
 
             return rpt;
          }
+    
+        public DataSet listar()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("select " +
+                "u.nombre as Nombre, u.apellido as Apellido, u.dni as Dni, u.correo as Correo, u.estado as Estado, c.nombre as Cargo" +
+                " from usuarios u inner join cargos c on c.idcargo = u.idcargo", cone);
+            da.Fill(ds);
+            return ds;
+        }
+    
     }
 }

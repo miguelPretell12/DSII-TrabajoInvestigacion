@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="admin.aspx.cs" Inherits="Clinica_DSII.dashboard.admin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Clinica_DSII.tecnico.index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="column mt-3">
@@ -14,29 +14,30 @@
                  </span>
                 </h3>
             </div>
-        </div>
+        </div>  
+        
         <hr />
 
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">Usuarios</h5>
-                      <p class="card-text">Se vera el listado de usuarios, y registro de la misma</p>
+                      <h5 class="card-title">Pacientes</h5>
+                      <p class="card-text">Se vera el listado de pacientes, y registro de la misma</p>
                     </div>
                     <div class="card-footer">
-                        <a class="btn btn-success" href="/dashboard/usuarios/index">Ver Usuarios</a>
+                        <a class="btn btn-success" href="/tecnico/pacientes/index">Ver pacientes</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">Horarios</h5>
-                      <p class="card-text">Se vera el listado de horarios de los doctores, y registro de la misma</p>
+                      <h5 class="card-title">Cita Medica</h5>
+                      <p class="card-text">Se vera el listado de cita medica, y registro de la misma</p>
                     </div>
                     <div class="card-footer">
-                        <a class="btn btn-success" href="/dashboard/usuarios/index">Ver Horarios</a>
+                        <a class="btn btn-success" href="/tecnico/citamedica/index">Ver Citas médica</a>
                     </div>
                 </div>
             </div>

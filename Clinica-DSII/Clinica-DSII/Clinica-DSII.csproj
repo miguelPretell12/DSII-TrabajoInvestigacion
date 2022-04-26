@@ -110,7 +110,10 @@
     <Content Include="Content\login.css" />
     <Content Include="dashboard\admin.aspx" />
     <Content Include="dashboard\doctor.aspx" />
+    <Content Include="dashboard\horarios\create.aspx" />
+    <Content Include="dashboard\horarios\index.aspx" />
     <Content Include="dashboard\usuarios\create.aspx" />
+    <Content Include="dashboard\usuarios\index.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -151,6 +154,11 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="tecnico\citamedica\create.aspx" />
+    <Content Include="tecnico\citamedica\index.aspx" />
+    <Content Include="tecnico\index.aspx" />
+    <Content Include="tecnico\pacientes\create.aspx" />
+    <Content Include="tecnico\pacientes\index.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -174,6 +182,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dao\DaoCargo.cs" />
+    <Compile Include="Dao\DaoPaciente.cs" />
     <Compile Include="Dao\DaoUsuario.cs" />
     <Compile Include="dashboard\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
@@ -189,12 +198,33 @@
     <Compile Include="dashboard\doctor.aspx.designer.cs">
       <DependentUpon>doctor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="dashboard\horarios\create.aspx.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\horarios\create.aspx.designer.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\horarios\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\horarios\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="dashboard\usuarios\create.aspx.cs">
       <DependentUpon>create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="dashboard\usuarios\create.aspx.designer.cs">
       <DependentUpon>create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\usuarios\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\usuarios\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -204,6 +234,7 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entidades\Cargo.cs" />
+    <Compile Include="Entidades\Paciente.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -229,6 +260,41 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="tecnico\citamedica\create.aspx.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tecnico\citamedica\create.aspx.designer.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tecnico\citamedica\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tecnico\citamedica\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tecnico\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tecnico\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tecnico\pacientes\create.aspx.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tecnico\pacientes\create.aspx.designer.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tecnico\pacientes\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tecnico\pacientes\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

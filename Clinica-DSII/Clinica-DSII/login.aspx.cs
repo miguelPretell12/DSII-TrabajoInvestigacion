@@ -23,7 +23,21 @@ namespace Clinica_DSII
         private SqlConnection cone = new SqlConnection("Server=LAPTOP-OB4D3M28;Database=clinicaDSII;Integrated Security = true");
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string cargo = Session["sessioncargo"] as string;
+            if(cargo != null) {
+                if (cargo == "administrador")
+                {
+                    Response.Redirect("/dashboard/admin");
+                }
+                else if (cargo == "tecnico")
+                {
+                    Response.Redirect("/tecnico/index");
+                }
+                else if (cargo == "doctor")
+                {
+                    Response.Redirect("/dashboard/doctor");
+                }
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -43,7 +57,7 @@ namespace Clinica_DSII
             SqlDataReader getData = da.ExecuteReader();
 
             if (dt.Rows.Count == 0) {
-                //lblR.Text = "Error";
+                lblR.Text = "Error";
             } else {
                 if (getData.Read()) {
                     Session["sesionusuario"] = getData["Apellido"].ToString().Trim() +", "+ getData["Nombre"].ToString().Trim() ;
@@ -63,7 +77,6 @@ namespace Clinica_DSII
                     {
                         Response.Redirect("/dashboard/doctor");
                     }
-
                 }
             }
             cone.Close();
