@@ -1,4 +1,4 @@
-# Clinica Cayetano Heredia
+# Policlinico Izaguirre
 
 ## Requisitos Funcionales
 

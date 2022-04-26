@@ -18,7 +18,7 @@ namespace Clinica_DSII.tecnico.citamedica
         protected void Page_Load(object sender, EventArgs e)
         {
             string sessioncargo = Session["sessioncargo"] as string;
-            if (sessioncargo == null || sessioncargo != "administrador")
+            if (sessioncargo == null || sessioncargo != "tecnico")
             {
                 Response.Redirect("/login");
             }

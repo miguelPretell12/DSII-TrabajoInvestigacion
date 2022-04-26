@@ -8,28 +8,34 @@
             <div class="col-sm">
                 <asp:Label ID="Label3" runat="server" Text="Nombres"></asp:Label>
                 <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*Campo Requerido</asp:RequiredFieldValidator>
             </div>
             <div class="col-sm">
                 <asp:Label ID="Label2" runat="server" Text="Apellidos"></asp:Label>
                 <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtApellido" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*Campo Requerido</asp:RequiredFieldValidator>
             </div>
             <div class="col-sm">
                 <asp:Label ID="Label1" runat="server" Text="D.N.I"></asp:Label>
                 <asp:TextBox ID="txtDni" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtDni" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*Campo Requerido</asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-sm">
                 <asp:Label ID="Label4" runat="server" Text="Correo Electronico"></asp:Label>
                 <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCorreo" ErrorMessage="RegularExpressionValidator" ForeColor="RED" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*Ingrese correo electronico</asp:RegularExpressionValidator>
             </div>
             <div class="col-sm">
                 <asp:Label ID="Label5" runat="server" Text="Contraseña"></asp:Label>
                 <asp:TextBox ID="txtContrasenia" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*Campo Requerido</asp:RequiredFieldValidator>
             </div>
             <div class="col-sm">
                 <asp:Label ID="Label6" runat="server" Text="Cargos"></asp:Label>
                 <asp:DropDownList ID="ddlCargo" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlCargo_SelectedIndexChanged"></asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlCargo" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*Campo Requerido</asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="mt-3">
