@@ -13,6 +13,7 @@
                      <asp:Label ID="lblScargo" runat="server" ></asp:Label>
                  </span>
                 </h3>
+                <asp:Button ID="btnCerrar" runat="server" CssClass="btn btn-danger" Text="Cerrar Session" OnClick="btnCerrar_Click" />
             </div>
         </div>  
         

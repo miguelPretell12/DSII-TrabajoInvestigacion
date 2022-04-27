@@ -15,7 +15,9 @@ namespace Clinica_DSII.Dao
 
         public DataSet listar()
         {
-            SqlDataAdapter da = new SqlDataAdapter("select * from horarios", cone);
+            SqlDataAdapter da = new SqlDataAdapter("select " +
+                " CONVERT(varchar,horainicio,24) as horaInicio , CONVERT(varchar,horafinal,24) as horaFinal " +
+                " from horarios", cone);
             da.Fill(ds);
             return ds;
         }

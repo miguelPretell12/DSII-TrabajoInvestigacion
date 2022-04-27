@@ -21,5 +21,12 @@ namespace Clinica_DSII.tecnico
             lblScargo.Text = Session["sessioncargo"] as string;
             lblSNombre.Text = Session["sesionusuario"] as string;
         }
+
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("/login");
+        }
     }
 }
