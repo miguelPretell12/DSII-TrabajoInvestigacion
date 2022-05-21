@@ -59,7 +59,7 @@ namespace Clinica_DSII.dashboard.pacientes
             cargo = int.Parse(ddlCargo.Text);
 
             Usuario usu = new Usuario(nombre,apellido,dni,correo, contra,cargo, "A");
-            string ins = dao.guardar(usu);
+            //string ins = dao.guardar(usu);
             
 
             Response.Redirect("/dashboard");

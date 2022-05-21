@@ -22,34 +22,56 @@ namespace Clinica_DSII.Dao
             return dt;
         }
 
-        public string guardar(Usuario usu) {
-            string rpt;
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "Insert into Usuarios values (@nom, @ape, @dni, @correo, @contr, @estado, @idcargo)";
-                cmd.Parameters.AddWithValue("@nom", usu.nombre);
-                cmd.Parameters.AddWithValue("@ape", usu.apellido);
-                cmd.Parameters.AddWithValue("@dni", usu.dni);
-                cmd.Parameters.AddWithValue("@correo", usu.correo);
-                cmd.Parameters.AddWithValue("@contr", usu.contrasenia);
-                cmd.Parameters.AddWithValue("@estado", usu.estado);
-                cmd.Parameters.AddWithValue("@idcargo", usu.cargos);
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = cone;
-                cone.Open(); // Abrir la conexion al servidor
-                cmd.ExecuteNonQuery(); // Enviar la orden al servidor
-                cone.Close(); // Cerrar la conexion al servidor
-                cmd.Dispose(); // Liberar recursos del comando
-                rpt = "";
-            }
-            catch (Exception ex)
-            {
-                rpt = "error al grabar" + ex.Message;
-            }
+        public int guardar(Usuario usu) {
+            int rpt;    
+            SqlCommand cmd = new SqlCommand("PROC_INSERTAR_USUARIO", cone);
+            cmd.Parameters.AddWithValue("@nombre", usu.nombre);
+            cmd.Parameters.AddWithValue("@apellido", usu.apellido);
+            cmd.Parameters.AddWithValue("@dni", usu.dni);
+            cmd.Parameters.AddWithValue("@correo", usu.correo);
+            cmd.Parameters.AddWithValue("@contrasenia", usu.contrasenia);
+            cmd.Parameters.AddWithValue("@idcargo", usu.cargos);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cone.Open(); // Abrir la conexion al servidor
+            rpt = cmd.ExecuteNonQuery(); // Enviar la orden al servidor
+            cone.Close(); // Cerrar la conexion al servidor
+            cmd.Dispose(); // Liberar recursos del comando            
 
             return rpt;
-         }
+        }
+
+        public int eliminarUser(int userid)
+        {
+            int rpt;
+            SqlCommand cmd = new SqlCommand("ELIMINAR_USUARIO", cone);
+            cmd.Parameters.AddWithValue("@iduser", userid);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cone.Open(); // Abrir la conexion al servidor
+            rpt = cmd.ExecuteNonQuery(); // Enviar la orden al servidor
+            cone.Close(); // Cerrar la conexion al servidor
+            cmd.Dispose(); // Liberar recursos del comando         
+            return rpt;
+        }
+
+        public int actualizar(Usuario usu)
+        {
+            int rpt;
+            SqlCommand cmd = new SqlCommand("PROC_ACTUALIZAR_USUARIO", cone);
+            cmd.Parameters.AddWithValue("@nombre", usu.nombre);
+            cmd.Parameters.AddWithValue("@apellido", usu.apellido);
+            cmd.Parameters.AddWithValue("@dni", usu.dni);
+            cmd.Parameters.AddWithValue("@correo", usu.correo);
+            cmd.Parameters.AddWithValue("@contrasenia", usu.contrasenia);
+            cmd.Parameters.AddWithValue("@idcargo", usu.cargos);
+            cmd.Parameters.AddWithValue("@iduser", usu.idusuarios);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cone.Open(); // Abrir la conexion al servidor
+            rpt = cmd.ExecuteNonQuery(); // Enviar la orden al servidor
+            cone.Close(); // Cerrar la conexion al servidor
+            cmd.Dispose(); // Liberar recursos del comando            
+
+            return rpt;
+        }
     
         public DataSet listar()
         {
@@ -59,6 +81,120 @@ namespace Clinica_DSII.Dao
             da.Fill(ds);
             return ds;
         }
+
+        public List<Usuario> listarUsuario()
+        {
+            List<Usuario> list = new List<Usuario>();
+            SqlCommand cmd = null;
+            SqlDataReader reader = null;
+            cone.Open();
+            try {
+                cmd = new SqlCommand("LISTAR_USUARIOS", cone);
+                cmd.CommandType = CommandType.StoredProcedure;
+                reader = cmd.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    Usuario usu = new Usuario();
+                    usu.idusuarios = int.Parse(reader["Idusuario"].ToString());
+                    usu.nombre = reader["Nombre"].ToString();
+                    usu.apellido = reader["Apellido"].ToString();
+                    usu.dni = reader["Dni"].ToString();
+                    usu.correo = reader["Correo"].ToString();
+                    usu.estado = reader["Estado"].ToString();
+                    usu.cargo = reader["Cargo"].ToString();
+
+                    list.Add(usu);
+                }
+            } catch (Exception e) { 
+            
+            }
+            cone.Close();
+            return list;
+        }
+
+        public List<Cargo> Cargos() {
+            List<Cargo> list = new List<Cargo>();
+            SqlCommand cmd = null;
+            SqlDataReader reader = null;
+            cone.Open();
+            try
+            {
+                cmd = new SqlCommand("LISTAR_CARGOS", cone);
+                cmd.CommandType = CommandType.StoredProcedure;
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Cargo carg = new Cargo();
+                    carg.idcargos = int.Parse(reader["Idcargo"].ToString());
+                    carg.nombre = reader["Nombre"].ToString();
+
+                    list.Add(carg);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            cone.Close();
+            return list;
+        }
+
+        public Usuario getUser(int iduser) {
+            SqlCommand cmd = new SqlCommand("OBTENER_USUARIO", cone);
+            cmd.Parameters.AddWithValue("@iduser",iduser);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cone.Open();
+            SqlDataReader getUse = cmd.ExecuteReader();
+            Usuario usu = new Usuario();
+            if (getUse.Read())
+            {
+                usu.nombre = getUse["Nombre"].ToString().Trim();
+                usu.apellido = getUse["Apellido"].ToString().Trim();
+                usu.dni = getUse["Dni"].ToString().Trim();
+                usu.correo = getUse["Correo"].ToString().Trim();
+                usu.contrasenia = getUse["Contrasenia"].ToString().Trim();
+                usu.cargos = int.Parse(getUse["Idcargo"].ToString().Trim());
+                usu.idusuarios = int.Parse(getUse["Idusuario"].ToString().Trim());
+            }
+            return usu;
+        }
     
+        public Boolean updatestatus(Usuario usu)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("PROC_STATUS_USERS", cone);
+                cmd.Parameters.AddWithValue("@estado", usu.estado);
+                cmd.Parameters.AddWithValue("@idusuario", usu.idusuarios);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cone.Open();
+                cmd.ExecuteNonQuery();
+                cone.Close();
+                cmd.Dispose();
+                return true; 
+            }
+            catch (SqlException e) {
+                return false;
+            }
+        }
+
+        public Usuario consultarEmail(string correo) {
+            SqlCommand cmd = new SqlCommand("select correo, idusuario from usuarios where correo = @email", cone);
+            cmd.Parameters.AddWithValue("@email", correo);
+
+            cone.Open();
+            SqlDataReader getUse = cmd.ExecuteReader();
+            Usuario usu = new Usuario();
+
+            if (getUse.Read())
+            {
+                usu.idusuarios = int.Parse(getUse["idusuario"].ToString().Trim());
+                usu.correo = getUse["correo"].ToString().Trim();
+            }
+
+            return usu;
+        }
     }
 }

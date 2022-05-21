@@ -34,7 +34,7 @@ horainicio time,
 horafinal time
 )
 
-create table especialidadDoctor(
+create table especialidadMedico(
 idespdoctor int identity(1,1) primary key,
 idespecialidad int references especialidad(idespecialidad),
 idusuario int references usuarios(idusuario)

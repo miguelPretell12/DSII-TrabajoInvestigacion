@@ -16,6 +16,8 @@ namespace Clinica_DSII.Entidades
         public int cargos { get; set; }
         public string estado { get; set; }
 
+        public string cargo { get; set; }
+
         public Usuario() { }
 
         public Usuario( string nombre, string apellido, string dni, string correo, string contrasenia, int cargos, string estado)
