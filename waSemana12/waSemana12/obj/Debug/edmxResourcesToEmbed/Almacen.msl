@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BD_almacenModelStoreContainer" CdmEntityContainer="BD_almacenEntities">
+    <EntitySetMapping Name="Categoria">
+      <EntityTypeMapping TypeName="BD_almacenModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="idcat" ColumnName="idcat" />
+          <ScalarProperty Name="nomcat" ColumnName="nomcat" />
+          <ScalarProperty Name="descat" ColumnName="descat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="BD_almacenModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="idpro" ColumnName="idpro" />
+          <ScalarProperty Name="nompro" ColumnName="nompro" />
+          <ScalarProperty Name="prepro" ColumnName="prepro" />
+          <ScalarProperty Name="stkpro" ColumnName="stkpro" />
+          <ScalarProperty Name="fvcpro" ColumnName="fvcpro" />
+          <ScalarProperty Name="idcat" ColumnName="idcat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_actualizar_producto" FunctionName="BD_almacenModel.Store.usp_actualizar_producto" />
+    <FunctionImportMapping FunctionImportName="usp_borrar_producto" FunctionName="BD_almacenModel.Store.usp_borrar_producto" />
+    <FunctionImportMapping FunctionImportName="usp_insertar_producto" FunctionName="BD_almacenModel.Store.usp_insertar_producto" />
+    <FunctionImportMapping FunctionImportName="usp_listar_categoria" FunctionName="BD_almacenModel.Store.usp_listar_categoria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BD_almacenModel.usp_listar_categoria_Result">
+          <ScalarProperty Name="idcat" ColumnName="idcat" />
+          <ScalarProperty Name="nomcat" ColumnName="nomcat" />
+          <ScalarProperty Name="descat" ColumnName="descat" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_listar_producto" FunctionName="BD_almacenModel.Store.usp_listar_producto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BD_almacenModel.usp_listar_producto_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Fecha_de_Vencimiento" ColumnName="Fecha de Vencimiento" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_almacenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="idcat" />
+    </Key>
+    <Property Name="idcat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomcat" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="descat" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="idpro" />
+    </Key>
+    <Property Name="idpro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nompro" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="prepro" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="stkpro" Type="int" Nullable="false" />
+    <Property Name="fvcpro" Type="date" Nullable="false" />
+    <Property Name="idcat" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_idcat">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="idcat" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="idcat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_actualizar_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nom" Type="varchar" Mode="In" />
+    <Parameter Name="pre" Type="decimal" Mode="In" />
+    <Parameter Name="stk" Type="int" Mode="In" />
+    <Parameter Name="fvc" Type="date" Mode="In" />
+    <Parameter Name="idcat" Type="int" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_borrar_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_insertar_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nom" Type="varchar" Mode="In" />
+    <Parameter Name="pre" Type="decimal" Mode="In" />
+    <Parameter Name="stk" Type="int" Mode="In" />
+    <Parameter Name="fvc" Type="date" Mode="In" />
+    <Parameter Name="idcat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_listar_categoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_listar_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="BD_almacenModelStoreContainer">
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_idcat" Association="Self.fk_idcat">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

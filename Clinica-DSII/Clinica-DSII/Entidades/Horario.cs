@@ -7,8 +7,9 @@ namespace Clinica_DSII.Entidades
 {
     public class Horario
     {
-        public TimeSpan horainicio;
-        public TimeSpan horafinal;
+        public int idhorario { get; set; }
+        public TimeSpan horainicio { get; set; }
+        public TimeSpan horafinal { get; set; }
 
         public Horario() { 
         }
@@ -18,5 +19,7 @@ namespace Clinica_DSII.Entidades
             this.horainicio = horainicio;
             this.horafinal = horafinal;
         }
+
+
     }
 }

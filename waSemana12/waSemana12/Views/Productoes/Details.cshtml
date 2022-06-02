@@ -1,0 +1,58 @@
+﻿@model waSemana12.Producto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nompro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nompro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prepro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prepro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stkpro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stkpro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fvcpro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fvcpro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.nomcat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.nomcat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idpro }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

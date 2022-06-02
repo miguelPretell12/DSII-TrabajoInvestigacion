@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BD_almacenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idcat" />
+          </Key>
+          <Property Name="idcat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomcat" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="descat" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="idpro" />
+          </Key>
+          <Property Name="idpro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nompro" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="prepro" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="stkpro" Type="int" Nullable="false" />
+          <Property Name="fvcpro" Type="date" Nullable="false" />
+          <Property Name="idcat" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_idcat">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idcat" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="idcat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_actualizar_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nom" Type="varchar" Mode="In" />
+          <Parameter Name="pre" Type="decimal" Mode="In" />
+          <Parameter Name="stk" Type="int" Mode="In" />
+          <Parameter Name="fvc" Type="date" Mode="In" />
+          <Parameter Name="idcat" Type="int" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_borrar_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_insertar_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nom" Type="varchar" Mode="In" />
+          <Parameter Name="pre" Type="decimal" Mode="In" />
+          <Parameter Name="stk" Type="int" Mode="In" />
+          <Parameter Name="fvc" Type="date" Mode="In" />
+          <Parameter Name="idcat" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_listar_categoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_listar_producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="BD_almacenModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_idcat" Association="Self.fk_idcat">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_almacenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idcat" />
+          </Key>
+          <Property Name="idcat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomcat" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descat" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.fk_idcat" FromRole="Categoria" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="idpro" />
+          </Key>
+          <Property Name="idpro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nompro" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prepro" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="stkpro" Type="Int32" Nullable="false" />
+          <Property Name="fvcpro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idcat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="Self.fk_idcat" FromRole="Producto" ToRole="Categoria" />
+        </EntityType>
+        <Association Name="fk_idcat">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idcat" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="idcat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_almacenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <AssociationSet Name="fk_idcat" Association="Self.fk_idcat">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <FunctionImport Name="usp_actualizar_producto">
+            <Parameter Name="nom" Mode="In" Type="String" />
+            <Parameter Name="pre" Mode="In" Type="Decimal" />
+            <Parameter Name="stk" Mode="In" Type="Int32" />
+            <Parameter Name="fvc" Mode="In" Type="DateTime" />
+            <Parameter Name="idcat" Mode="In" Type="Int32" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_borrar_producto">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_insertar_producto">
+            <Parameter Name="nom" Mode="In" Type="String" />
+            <Parameter Name="pre" Mode="In" Type="Decimal" />
+            <Parameter Name="stk" Mode="In" Type="Int32" />
+            <Parameter Name="fvc" Mode="In" Type="DateTime" />
+            <Parameter Name="idcat" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_listar_categoria" ReturnType="Collection(BD_almacenModel.usp_listar_categoria_Result)" />
+          <FunctionImport Name="usp_listar_producto" ReturnType="Collection(BD_almacenModel.usp_listar_producto_Result)" />
+        </EntityContainer>
+        <ComplexType Name="usp_listar_categoria_Result">
+          <Property Type="Int32" Name="idcat" Nullable="false" />
+          <Property Type="String" Name="nomcat" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="descat" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="usp_listar_producto_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="Decimal" Name="Precio" Nullable="false" Precision="8" Scale="2" />
+          <Property Type="Int32" Name="Stock" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha_de_Vencimiento" Nullable="false" />
+          <Property Type="String" Name="Categoria" Nullable="false" MaxLength="35" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_almacenModelStoreContainer" CdmEntityContainer="BD_almacenEntities">
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="BD_almacenModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="idcat" ColumnName="idcat" />
+                <ScalarProperty Name="nomcat" ColumnName="nomcat" />
+                <ScalarProperty Name="descat" ColumnName="descat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="BD_almacenModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="idpro" ColumnName="idpro" />
+                <ScalarProperty Name="nompro" ColumnName="nompro" />
+                <ScalarProperty Name="prepro" ColumnName="prepro" />
+                <ScalarProperty Name="stkpro" ColumnName="stkpro" />
+                <ScalarProperty Name="fvcpro" ColumnName="fvcpro" />
+                <ScalarProperty Name="idcat" ColumnName="idcat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_actualizar_producto" FunctionName="BD_almacenModel.Store.usp_actualizar_producto" />
+          <FunctionImportMapping FunctionImportName="usp_borrar_producto" FunctionName="BD_almacenModel.Store.usp_borrar_producto" />
+          <FunctionImportMapping FunctionImportName="usp_insertar_producto" FunctionName="BD_almacenModel.Store.usp_insertar_producto" />
+          <FunctionImportMapping FunctionImportName="usp_listar_categoria" FunctionName="BD_almacenModel.Store.usp_listar_categoria">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_almacenModel.usp_listar_categoria_Result">
+                <ScalarProperty Name="idcat" ColumnName="idcat" />
+                <ScalarProperty Name="nomcat" ColumnName="nomcat" />
+                <ScalarProperty Name="descat" ColumnName="descat" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_listar_producto" FunctionName="BD_almacenModel.Store.usp_listar_producto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_almacenModel.usp_listar_producto_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Fecha_de_Vencimiento" ColumnName="Fecha de Vencimiento" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
