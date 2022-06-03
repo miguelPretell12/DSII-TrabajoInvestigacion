@@ -6,7 +6,6 @@
         <h1>Usuarios</h1>
         <div class="mb-3">
             <%--<a class="btn btn-primary d-inline" href="/dashboard/usuarios/create">Crear Usuarios</a>--%>
-            <a href="/dashboard/admin" class="btn btn-secondary ">Volver</a>
             <button type="button" id="mostrar" class="btn btn-primary d-inline" data-bs-toggle="modal" data-bs-target="#modaluser">
                Crear Usuarios
             </button>

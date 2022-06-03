@@ -109,7 +109,6 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\login.css" />
     <Content Include="dashboard\admin.aspx" />
-    <Content Include="dashboard\especialidadMedico\index.aspx" />
     <Content Include="dashboard\horarios\create.aspx" />
     <Content Include="dashboard\usuarios\create.aspx" />
     <Content Include="dashboard\usuarios\index.aspx" />
@@ -156,6 +155,7 @@
     <Content Include="Site.Master" />
     <Content Include="tecnico\citamedica\create.aspx" />
     <Content Include="tecnico\citamedica\index.aspx" />
+    <Content Include="tecnico\citamedica\update.aspx" />
     <Content Include="tecnico\index.aspx" />
     <Content Include="tecnico\pacientes\create.aspx" />
     <Content Include="tecnico\pacientes\index.aspx" />
@@ -184,7 +184,6 @@
     <Compile Include="Dao\DaoCargo.cs" />
     <Compile Include="Dao\DaoCitaMedica.cs" />
     <Compile Include="Dao\DaoHorario.cs" />
-    <Compile Include="Dao\DaoMedicoEspecialidad.cs" />
     <Compile Include="Dao\DaoPaciente.cs" />
     <Compile Include="Dao\DaoUsuario.cs" />
     <Compile Include="dashboard\admin.aspx.cs">
@@ -193,13 +192,6 @@
     </Compile>
     <Compile Include="dashboard\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="dashboard\especialidadMedico\index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="dashboard\especialidadMedico\index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard\horarios\create.aspx.cs">
       <DependentUpon>create.aspx</DependentUpon>
@@ -231,7 +223,6 @@
     </Compile>
     <Compile Include="Entidades\Cargo.cs" />
     <Compile Include="Entidades\CitaMedica.cs" />
-    <Compile Include="Entidades\Especialidad.cs" />
     <Compile Include="Entidades\Horario.cs" />
     <Compile Include="Entidades\Paciente.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -288,6 +279,13 @@
     <Compile Include="tecnico\citamedica\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="tecnico\citamedica\update.aspx.cs">
+      <DependentUpon>update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tecnico\citamedica\update.aspx.designer.cs">
+      <DependentUpon>update.aspx</DependentUpon>
+    </Compile>
     <Compile Include="tecnico\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -309,7 +307,6 @@
     <Compile Include="tecnico\pacientes\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewClass\ViewEspecialidadMedico.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

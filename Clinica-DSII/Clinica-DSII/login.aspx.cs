@@ -20,7 +20,7 @@ namespace Clinica_DSII
 
         DataTable dt = new DataTable();
         // Conexion de Base de datos - SQL Server
-        private SqlConnection cone = new SqlConnection("Server=LAPTOP-OB4D3M28;Database=clinicaDSII;Integrated Security = true");
+        private SqlConnection cone = new SqlConnection(@"Server=DESKTOP-AS63TOF\MSSQL;Database=clinicaDSII;Integrated Security = true");
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)

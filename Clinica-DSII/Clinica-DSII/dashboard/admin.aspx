@@ -42,23 +42,6 @@
                 </div>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Especialidad - Medico</h5>
-                        <p class="card-text">
-                            En este modulo, se agregara a cada medico con su especialidad correspondiente, para la atencion de los pacientes
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <a class="btn btn-success" href="/dashboard/especialidadMedico/index">
-                            Ver Medicos
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 </asp:Content>

@@ -7,17 +7,20 @@ namespace Clinica_DSII.Entidades
 {
     public class Paciente
     {
-        public int idpaciente { get; set; }
+        public int idpacientes { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string dni { get; set; }
         public string correo { get; set; }
         public DateTime fechanacimiento { get; set; }
 
-        public Paciente() { }
-
-        public Paciente(string nombre, string apellido, string dni, string correo, DateTime fechanacimiento)
+        public Paciente()
         {
+        }
+
+        public Paciente(int idpacientes, string nombre, string apellido, string dni, string correo, DateTime fechanacimiento)
+        {
+            this.idpacientes = idpacientes;
             this.nombre = nombre;
             this.apellido = apellido;
             this.dni = dni;

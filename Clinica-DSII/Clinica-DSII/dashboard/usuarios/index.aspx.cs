@@ -15,7 +15,7 @@ namespace Clinica_DSII.dashboard.usuarios
     public partial class index : System.Web.UI.Page
     {
         // Conexion a la BD - SQL Server
-        private SqlConnection cone = new SqlConnection("Server=LAPTOP-OB4D3M28; Database=clinicaDSII; Integrated Security=true");
+        private SqlConnection cone = new SqlConnection(@"Server=DESKTOP-AS63TOF\MSSQL; Database=clinicaDSII; Integrated Security=true");
         DataSet ds = new DataSet();
         DaoUsuario dao = new DaoUsuario();
         protected void Page_Load(object sender, EventArgs e)
@@ -27,20 +27,8 @@ namespace Clinica_DSII.dashboard.usuarios
                 {
                     Response.Redirect("/login");
                 }
-                listarCargos();
+                
             }
-        }
-
-        private void listarCargos()
-        {
-            DataSet ds = new DataSet();
-            SqlCommand cm = new SqlCommand("select * from cargos", cone);
-            SqlDataAdapter da = new SqlDataAdapter(cm);
-            da.Fill(ds);
-            //ddlCargo.DataSource = ds;
-            //ddlCargo.DataValueField = "Idcargo";
-            //ddlCargo.DataTextField = "Nombre";
-            //ddlCargo.DataBind();
         }
 
         [WebMethod]

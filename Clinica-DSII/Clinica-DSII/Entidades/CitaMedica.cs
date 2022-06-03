@@ -13,14 +13,15 @@ namespace Clinica_DSII.Entidades
         public int idespdoctor { get; set; }
         public DateTime fechacita { get; set; }
         public string estado { get; set; }
-        public Double peso { get; set; }
-        public Double talla { get; set; }
+        public Decimal peso { get; set; }
+        public Decimal talla { get; set; }
         public String alergiamedicamento { get; set; }
 
         public CitaMedica() { }
 
-        public CitaMedica(int idpaciente, int idhorario, int idespdoctor, DateTime fechacita, string estado, double peso, double talla, string alergiamedicamento)
+        public CitaMedica(int idcitamedica, int idpaciente, int idhorario, int idespdoctor, DateTime fechacita, string estado, Decimal peso, Decimal talla, string alergiamedicamento)
         {
+            this.idcitamedica = idcitamedica;
             this.idpaciente = idpaciente;
             this.idhorario = idhorario;
             this.idespdoctor = idespdoctor;
@@ -29,6 +30,23 @@ namespace Clinica_DSII.Entidades
             this.peso = peso;
             this.talla = talla;
             this.alergiamedicamento = alergiamedicamento;
+        }
+
+        public string paciente(string v)
+        {
+            return idpaciente.ToString();
+        }
+        public string horario(string v)
+        {
+            return idhorario.ToString();
+        }
+        public string espdoctor(string v)
+        {
+            return idespdoctor.ToString();
+        }
+        public string fechaC(string v)
+        {
+            return fechacita.ToString();
         }
     }
 }

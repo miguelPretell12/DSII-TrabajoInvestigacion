@@ -14,12 +14,11 @@ namespace Clinica_DSII.Entidades
         public Horario() { 
         }
 
-        public Horario(TimeSpan horainicio, TimeSpan horafinal)
+        public Horario(int idhorario, TimeSpan horainicio, TimeSpan horafinal)
         {
+            this.idhorario = idhorario;
             this.horainicio = horainicio;
             this.horafinal = horafinal;
         }
-
-
     }
 }
