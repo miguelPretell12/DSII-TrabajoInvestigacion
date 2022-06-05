@@ -58,6 +58,21 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Consultas - Médico</h5>
+                        <p class="card-text">
+
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-success" href="/dashboard/consultas/index">
+                            Ver consultas - Médicos
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>

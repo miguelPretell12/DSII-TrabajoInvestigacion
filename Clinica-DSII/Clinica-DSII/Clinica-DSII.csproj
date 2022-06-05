@@ -109,6 +109,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\login.css" />
     <Content Include="dashboard\admin.aspx" />
+    <Content Include="dashboard\consultas\index.aspx" />
     <Content Include="dashboard\especialidadMedico\index.aspx" />
     <Content Include="dashboard\horarios\create.aspx" />
     <Content Include="dashboard\usuarios\create.aspx" />
@@ -125,6 +126,9 @@
     <Content Include="login.aspx" />
     <Content Include="medico\citamedica\consultarcita.aspx" />
     <Content Include="medico\index.aspx" />
+    <Content Include="paciente\citasmedicas\index.aspx" />
+    <Content Include="paciente\index.aspx" />
+    <Content Include="paciente\reserva\index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -183,6 +187,7 @@
     </Compile>
     <Compile Include="Dao\DaoCargo.cs" />
     <Compile Include="Dao\DaoCitaMedica.cs" />
+    <Compile Include="Dao\DaoConsulta.cs" />
     <Compile Include="Dao\DaoHorario.cs" />
     <Compile Include="Dao\DaoMedicoEspecialidad.cs" />
     <Compile Include="Dao\DaoPaciente.cs" />
@@ -193,6 +198,13 @@
     </Compile>
     <Compile Include="dashboard\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\consultas\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\consultas\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard\especialidadMedico\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -231,6 +243,7 @@
     </Compile>
     <Compile Include="Entidades\Cargo.cs" />
     <Compile Include="Entidades\CitaMedica.cs" />
+    <Compile Include="Entidades\Consulta.cs" />
     <Compile Include="Entidades\Especialidad.cs" />
     <Compile Include="Entidades\Horario.cs" />
     <Compile Include="Entidades\Paciente.cs" />
@@ -257,6 +270,27 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="medico\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paciente\citasmedicas\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paciente\citasmedicas\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paciente\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paciente\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paciente\reserva\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paciente\reserva\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,7 +343,10 @@
     <Compile Include="tecnico\pacientes\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewClass\ViewConsultaObtener.cs" />
+    <Compile Include="ViewClass\ViewConsultas.cs" />
     <Compile Include="ViewClass\ViewEspecialidadMedico.cs" />
+    <Compile Include="ViewClass\ViewMedico.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

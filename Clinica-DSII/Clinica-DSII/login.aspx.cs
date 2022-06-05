@@ -80,6 +80,9 @@ namespace Clinica_DSII
                     else if (cargo == "doctor")
                     {
                         Response.Redirect("/medico/index");
+                    } else if (cargo == "paciente")
+                    {
+                        Response.Redirect("/paciente/index");
                     }
                 }
             }

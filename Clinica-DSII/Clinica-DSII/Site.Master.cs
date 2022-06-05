@@ -29,9 +29,17 @@ namespace Clinica_DSII
             {
                 Response.Redirect("/dashboard/admin");    
             }
-            else if(cargo == "user")
+            else if(cargo == "tecnico")
             {
-                Response.Redirect("/dashboard/user");
+                Response.Redirect("/tecnico/índex");
+            }
+            else if(cargo == "doctor")
+            {
+                Response.Redirect("/medico/índex");
+            }
+            else if(cargo == "paciente")
+            {
+                Response.Redirect("/paciente/index");
             }
             else
             {

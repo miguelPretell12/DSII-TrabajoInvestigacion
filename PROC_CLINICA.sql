@@ -200,4 +200,83 @@ create proc PROC_ELIMINAR_MED_ESP @idespmed int
 as
 	delete from especialidadMedico where idespdoctor = @idespmed
 go
-select * from usuarios
+
+alter proc PROC_LISTAR_MEDICO 
+as
+	select 
+		CONCAT(u.apellido,', ', u.nombre) as medico,
+		u.idusuario as idmedico
+	from especialidadMedico em
+	inner join usuarios u on em.idusuario = u.idusuario
+	inner join cargos c on u.idcargo = c.idcargo
+	where c.nombre = 'doctor'
+go
+
+exec PROC_LISTAR_MEDICO
+go
+
+create proc PROC_OBTENER_MED_ESP @idmedico int
+as
+	select 
+		em.idespecialidad as idespecialidad,
+		e.nombre as especialidad
+	from especialidadMedico em
+	inner join usuarios u on u.idusuario = em.idusuario
+	inner join cargos c on c.idcargo = u.idcargo
+	inner join especialidad e on em.idespecialidad = e.idespecialidad
+	where c.nombre = 'doctor' and  em.idusuario = @idmedico
+go
+
+alter proc PROC_GUARDAR_CONSULTA @idmedico int, @idespecialidad int, @idhorario int, @precio decimal(8,2) 
+as
+	declare @exist int
+	select 
+		@exist = count(*)
+	from consultas 
+	where idmedico = @idmedico and idhorario = @idhorario
+	if @exist = 0 
+	BEGIN
+		insert into consultas values (@idmedico, @idespecialidad, @idhorario, @precio)
+		return 1
+	END
+	else 
+	BEGIN
+		return 0
+	END
+go
+
+
+create proc PROC_OBTENER_CONSULTA @idconsulta int
+as
+	select 
+		c.idconsulta as idconsulta,
+		u.idusuario as idmedico,
+		c.idespecialidad as idespecialidad,
+		e.nombre as especialidad,
+		h.idhorario as horario,
+		c.precio as precio
+	from consultas c 
+	inner join usuarios u on u.idusuario = c.idmedico
+	inner join especialidad e on e.idespecialidad = c.idespecialidad
+	inner join horarios h on h.idhorario = c.idhorario
+	inner join cargos cg on cg.idcargo = u.idcargo
+	where cg.nombre = 'doctor' and c.idconsulta = @idconsulta
+go
+
+create proc PROC_LISTAR_CONSULTAS 
+AS
+	select 
+		c.idconsulta as idconsulta,
+		CONCAT(u.apellido,', ',u.nombre) as medico,
+		e.nombre as especialidad,
+		h.horainicio as horainicio,
+		h.horafinal as horafinal,
+		c.precio as precio
+	from consultas c
+	inner join usuarios u on u.idusuario = c.idmedico
+	inner join especialidad e on e.idespecialidad = c.idespecialidad
+	inner join horarios h on h.idhorario = c.idhorario
+	inner join cargos cg on cg.idcargo = u.idcargo
+GO
+
+exec PROC_LISTAR_CONSULTAS
