@@ -10,7 +10,7 @@ namespace Clinica_DSII.Dao
 {
     public class DaoUsuario
     {
-        private SqlConnection cone = new SqlConnection("Server=LAPTOP-OB4D3M28;Database=clinicaDSII;Integrated Security = true");
+        private SqlConnection cone = new SqlConnection(@"Server=DESKTOP-AS63TOF\MSSQL;Database=clinicaDSII;Integrated Security = true");
         DataSet ds = new DataSet();
         public DataTable IniciarSesion(Usuario usu)
         {
@@ -127,8 +127,8 @@ namespace Clinica_DSII.Dao
                 while (reader.Read())
                 {
                     Cargo carg = new Cargo();
-                    carg.idcargos = int.Parse(reader["Idcargo"].ToString());
-                    carg.nombre = reader["Nombre"].ToString();
+                    carg.idcargos = int.Parse(reader["idcargo"].ToString());
+                    carg.nombre = reader["nombre"].ToString();
 
                     list.Add(carg);
                 }

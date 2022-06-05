@@ -26,25 +26,7 @@ namespace Clinica_DSII.tecnico.paciente
 
         protected void btnRegistro_Click(object sender, EventArgs e)
         {
-            string nombre, apellido, dni, correo;
-            DateTime fechaNac;
-
-            nombre = txtNombre.Text;
-            apellido = txtApellido.Text;
-            dni = txtDni.Text;
-            correo = txtCorreo.Text;
-            fechaNac = DateTime.Parse(txtFechaNac.Text);
-
-            Paciente pac = new Paciente(nombre, apellido, dni, correo, fechaNac);
-
-            if(dao.insertar(pac))
-            {
-                Response.Redirect("/tecnico/pacientes/index");
-            } else
-            {
-                Response.Redirect("/tecnico/paciente/create");
-            }
-
+            
         }
     }
 }
