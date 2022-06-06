@@ -13,14 +13,6 @@ namespace Clinica_DSII.Dao
         private SqlConnection cone = new SqlConnection(@"Server=DESKTOP-AS63TOF\MSSQL;Database=clinicaDSII;Integrated Security = true");
         DataSet ds = new DataSet();
 
-        public DataSet listar()
-        {
-            SqlDataAdapter da = new SqlDataAdapter("select " +
-                " CONVERT(varchar,horainicio,24) as horaInicio , CONVERT(varchar,horafinal,24) as horaFinal " +
-                " from horarios", cone);
-            da.Fill(ds);
-            return ds;
-        }
 
         public List<Horario> listar()
         {
