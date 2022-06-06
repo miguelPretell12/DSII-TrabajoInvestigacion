@@ -213,8 +213,6 @@
     <Compile Include="dashboard\especialidadMedico\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-=======
->>>>>>> 784c3a8758f75328f5a1ddf26c78185d7b88c32d
     <Compile Include="dashboard\horarios\create.aspx.cs">
       <DependentUpon>create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
