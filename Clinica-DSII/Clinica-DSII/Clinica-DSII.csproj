@@ -111,6 +111,7 @@
     <Content Include="dashboard\admin.aspx" />
     <Content Include="dashboard\consultas\index.aspx" />
     <Content Include="dashboard\especialidadMedico\index.aspx" />
+    <Content Include="dashboard\subhorarios\create.aspx" />
     <Content Include="dashboard\horarios\create.aspx" />
     <Content Include="dashboard\usuarios\create.aspx" />
     <Content Include="dashboard\usuarios\index.aspx" />
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="dashboard\especialidadMedico\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\subhorarios\create.aspx.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\subhorarios\create.aspx.designer.cs">
+      <DependentUpon>create.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard\horarios\create.aspx.cs">
       <DependentUpon>create.aspx</DependentUpon>

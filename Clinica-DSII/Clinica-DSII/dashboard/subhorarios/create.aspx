@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="create.aspx.cs" Inherits="Clinica_DSII.dashboard.horario.create" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="create.aspx.cs" Inherits="Clinica_DSII.dashboard.horarios.create" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-3">
         <h1>Horarios</h1>
             
         <div class="row">
+            <input type="hidden"  id="horario"/>
             <div class="col-sm">
                 <asp:Label ID="Label1" runat="server" Text="Hora Inicio"></asp:Label>
                 <asp:TextBox ID="txtHoraI" runat="server" TextMode="Time" CssClass="form-control"></asp:TextBox>
@@ -18,12 +19,21 @@
          <asp:Label ID="lblr" runat="server" ></asp:Label>
         <div class="mt-3">
             <a runat="server" href="~/dashboard/admin.aspx" class="btn btn-outline-danger">Dashboard</a>
-            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" />
-            <!-- <button id="guardar" class="btn btn-primary">Guardar</button> -->
+            <%--<asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" />--%>
+            <<button id="guardar" class="btn btn-primary">Guardar</button>
             <button type="button" id="restaurar" class="btn btn-secondary" >Restaurar</button>
         </div>
         <div class="table-responsive mt-3">
-            <asp:GridView ID="grdHorario" runat="server" CssClass="table table-striped table-hover"></asp:GridView>
+            <table id="tblhorario" class="table">
+                <thead>
+                    <tr>
+                        <th>Hora de inicio</th>
+                        <th>Hora final</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
 
