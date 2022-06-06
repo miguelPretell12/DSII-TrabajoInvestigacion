@@ -14,7 +14,7 @@ namespace Clinica_DSII.dashboard.pacientes
     public partial class create : System.Web.UI.Page
     {
         
-        private SqlConnection cone = new SqlConnection("Server=LAPTOP-OB4D3M28; Database=clinicaDSII; Integrated Security=true");
+        private SqlConnection cone = new SqlConnection(@"Server=DESKTOP-AS63TOF\MSSQL; Database=clinicaDSII; Integrated Security=true");
         DaoUsuario dao = new DaoUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {

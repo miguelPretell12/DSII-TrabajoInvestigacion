@@ -11,7 +11,7 @@ namespace Clinica_DSII.tecnico.citamedica
 {
 
 
-    public partial class create
+    public partial class update
     {
 
         /// <summary>
@@ -204,12 +204,12 @@ namespace Clinica_DSII.tecnico.citamedica
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
 
         /// <summary>
-        /// Control btnRegistrar.
+        /// Control btnActualizar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistrar;
+        protected global::System.Web.UI.WebControls.Button btnActualizar;
     }
 }

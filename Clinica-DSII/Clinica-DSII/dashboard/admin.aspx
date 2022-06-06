@@ -42,6 +42,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
             <div class="col">
                 <div class="card">
@@ -74,6 +75,8 @@
                 </div>
             </div>
         </div>
+=======
+>>>>>>> 784c3a8758f75328f5a1ddf26c78185d7b88c32d
 
     </div>
 </asp:Content>

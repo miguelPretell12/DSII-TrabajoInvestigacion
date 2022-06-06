@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="create.aspx.cs" Inherits="Clinica_DSII.tecnico.citamedica.create" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="update.aspx.cs" Inherits="Clinica_DSII.tecnico.citamedica.update" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-3">
 
@@ -51,7 +51,7 @@
 
         <div class="mt-3">
             <a runat="server" href="~/tecnico/citamedica/index" class="btn btn-outline-success">Volver</a>
-            <asp:Button ID="btnRegistrar" CssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="btnRegistrar_Click" />
+            <asp:Button ID="btnActualizar" CssClass="btn btn-primary" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" />
         </div>
     </div>
 </asp:Content>
